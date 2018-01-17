@@ -1,0 +1,29 @@
+{
+  "name": "hot-threads-bot",
+  "version": "1.0.0",
+  "description": "Telegram Bot that gives Hot Threads on Reddit",
+  "main": "index.js",
+  "dependencies": {
+    "express": "^4.16.2",
+    "node-telegram-bot-api": "^0.30.0",
+    "request": "^2.83.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nicolasmoura/hot-threads-bot.git"
+  },
+  "keywords": [
+    "telegram",
+    "bot"
+  ],
+  "author": "Nícolas Moura",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/nicolasmoura/hot-threads-bot/issues"
+  },
+  "homepage": "https://github.com/nicolasmoura/hot-threads-bot#readme"
+}
