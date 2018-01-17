@@ -4,8 +4,8 @@ const dotenv = require('dotenv').config()
 
 const bot = new TelegramBot(process.env.TOKEN, {polling: true});
 
-const help = (message, match) => {
-    let helpText ='Eu posso ajudar a matar seu tédio te dizendo as threads que estão bombando nos seus subreddits favoritos.\n' +
+const sendHelp = (message, match) => {
+    let helpText = 'Eu posso ajudar a matar seu tédio te dizendo as threads que estão bombando nos seus subreddits favoritos.\n' +
         'É só me mandar esse comando:\n' +
         '\n' +
         '/NadaPraFazer [+ Lista de subreddits separada por ponto-e-vírgula (;)]\n';
@@ -13,6 +13,13 @@ const help = (message, match) => {
     bot.sendMessage(message.chat.id, helpText).then(() => {
         return console.log("/help enviado")
     })
+};
+
+const sendInstructions = (message, match) => {
+    let helpText = 'Eu preciso da lista de subreddits junto com o comando. \n' + 'Exemplo: /NadaPraFazer askreddit;music;cats';
+    bot.sendMessage(message.chat.id, helpText).then(() => {
+        return console.log("Instruções enviadas");
+    });
 };
 
 const getHotThreads = (message, match) => {
@@ -38,5 +45,6 @@ const fetchURL = (fetchURL) => {
 };
 
 bot.onText(/\/NadaPraFazer (.*)/, getHotThreads);
-bot.onText(/\/start/, help);
-bot.onText(/\/help/, help);
+bot.onText(/\/NadaPraFazer/, sendInstructions);
+bot.onText(/\/start/, sendHelp);
+bot.onText(/\/help/, sendHelp);
