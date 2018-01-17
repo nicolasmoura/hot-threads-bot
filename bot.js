@@ -1,9 +1,8 @@
 const TelegramBot = require('node-telegram-bot-api');
 const request = require('request');
+const dotenv = require('dotenv').config()
 
-const token = process.env.TOKEN;
-
-const bot = new TelegramBot(token, {polling: true});
+const bot = new TelegramBot(process.env.TOKEN, {polling: true});
 
 const help = (message, match) => {
     let helpText ='Eu posso ajudar a matar seu tédio te dizendo as threads que estão bombando nos seus subreddits favoritos.\n' +
