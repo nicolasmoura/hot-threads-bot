@@ -45,6 +45,6 @@ const fetchURL = (fetchURL) => {
 };
 
 bot.onText(/\/NadaPraFazer (.*)/, getHotThreads);
-bot.onText(/\/NadaPraFazer\s*/, sendInstructions);
+bot.onText(/\/NadaPraFazer\s*$/, sendInstructions);
 bot.onText(/\/start/, sendHelp);
 bot.onText(/\/help/, sendHelp);
