@@ -16,7 +16,7 @@ const sendHelp = (message, match) => {
 };
 
 const sendInstructions = (message, match) => {
-    let helpText = 'Eu preciso da lista de subreddits junto com o comando. \n' + 'Exemplo: /NadaPraFazer askreddit;music;cats';
+    let helpText = 'Eu preciso da lista de subreddits junto com o comando. \n\n' + 'Exemplo: \n /NadaPraFazer askreddit;music;cats';
     bot.sendMessage(message.chat.id, helpText).then(() => {
         return console.log("Instruções enviadas");
     });
@@ -45,6 +45,6 @@ const fetchURL = (fetchURL) => {
 };
 
 bot.onText(/\/NadaPraFazer (.*)/, getHotThreads);
-bot.onText(/\/NadaPraFazer/, sendInstructions);
+bot.onText(/\/NadaPraFazer\s*/, sendInstructions);
 bot.onText(/\/start/, sendHelp);
 bot.onText(/\/help/, sendHelp);
