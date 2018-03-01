@@ -25,6 +25,12 @@ const sendInstructions = (message, match) => {
 const getHotThreads = (message, match) => {
     fetchURL('https://rddt-scraper-api.herokuapp.com/threads/hot?subreddits=' + match[1])
         .then((threads) => {
+			if (threads === null || threads === undefined) {
+				bot.sendMessage(message.chat.id, "Não há threads bombando nesses subreddits :(").then(() => {
+					return console.log("Sem threads :(");
+				});
+				return;
+			}
             let response = '';
             threads.forEach((thread) => {
                 response = `<b>r/${thread.subreddit}</b> - <a href="${thread.link}">${thread.title}</a> \n\n`
